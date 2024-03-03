@@ -15,5 +15,15 @@ limitations under the License.
 -->
 
 <resources>
-  <string name="app_name">Google Wallet Smart Tap Sample App</string>
+  <string name="app_name" translatable="false">Google Wallet Smart Tap Sample App</string>
+  <string name="reader_name" translatable="false">Read your custom NFC pass</string>
+  <string name="store_name" translatable="false">Add your card to Google Wallet</string>
+  <string name="google_pay_status_unavailable" translatable="false">Unfortunately, Google Pay is not available on this phone.</string>
+  <string name="google_wallet_status_unavailable" translatable="false">Unfortunately, Google Wallet is not available on this phone.</string>
+  <string name="google_pay_status_checking" translatable="false">Checking if Google Pay is available...</string>
+  <string name="payments_show_name" translatable="false">Successfully received payment data for %s!</string>
+  <string name="add_google_wallet_success" translatable="false">The pass was added successfully!</string>
+  <string name="add_to_google_wallet_button_content_description">Add to Google Wallet</string>
+    <string name="launcher_checkout">Save new pass</string>
+  <string name="launcher_verify">Read NFC pass</string>
 </resources>

@@ -53,7 +53,8 @@ class NegotiateCryptoCommand {
   // https://developers.google.com/wallet/smart-tap/introduction/issuer-configuration
   static final byte[] COLLECTOR_ID = new byte[]{(byte) 0x01, (byte) 0x33, (byte) 0xEE, (byte) 0x80};
 
-  // Private key is hardcoded for this sample app. Public key set in the Google Wallet merchant account.
+  // Private key is hardcoded for this sample app.
+  // TODO Use your private key marching the public one added in your Google Wallet merchant account.
   // https://developers.google.com/wallet/smart-tap/introduction/issuer-configuration
   private static final String LONG_TERM_PRIVATE_KEY = "-----BEGIN EC PRIVATE KEY-----\n"
       + "MHcCAQEEIIJtF+UHZ7FlsOTZ4zL40dHiAiQoT7Ta8eUKAyRucHl9oAoGCCqGSM49\n"
