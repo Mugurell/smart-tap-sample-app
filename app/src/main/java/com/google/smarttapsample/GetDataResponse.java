@@ -267,9 +267,14 @@ class GetDataResponse {
         NdefMessage serviceNdefRecord = new NdefMessage(rec.getPayload());
 
         // Iterate over service NDEF records
+        // https://github.com/kormax/google-smart-tap#records
         for (NdefRecord serviceRecord : serviceNdefRecord.getRecords()) {
-          // Check for `ly` type
-          if (Arrays.equals(serviceRecord.getType(), new byte[]{(byte) 0x6c, (byte) 0x79})) {
+          if (
+            // Check for `ly` type
+             Arrays.equals(serviceRecord.getType(), new byte[]{(byte) 0x6c, (byte) 0x79}) ||
+            // Check for `gr` type
+            Arrays.equals(serviceRecord.getType(), new byte[]{(byte) 0x67, (byte) 0x72})
+          ) {
             // Get the loyalty record payload
             NdefMessage loyaltyRecordPayload = new NdefMessage(serviceRecord.getPayload());
 

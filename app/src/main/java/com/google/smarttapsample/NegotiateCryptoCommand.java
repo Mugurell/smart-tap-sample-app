@@ -49,9 +49,12 @@ import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 class NegotiateCryptoCommand {
 
   // Collector ID is hardcoded to `20180608` for this sample app
+  // TODO Add yours from the Google Wallet merchant account.
+  // https://developers.google.com/wallet/smart-tap/introduction/issuer-configuration
   static final byte[] COLLECTOR_ID = new byte[]{(byte) 0x01, (byte) 0x33, (byte) 0xEE, (byte) 0x80};
 
-  // Private key is hardcoded for this sample app
+  // Private key is hardcoded for this sample app. Public key set in the Google Wallet merchant account.
+  // https://developers.google.com/wallet/smart-tap/introduction/issuer-configuration
   private static final String LONG_TERM_PRIVATE_KEY = "-----BEGIN EC PRIVATE KEY-----\n"
       + "MHcCAQEEIIJtF+UHZ7FlsOTZ4zL40dHiAiQoT7Ta8eUKAyRucHl9oAoGCCqGSM49\n"
       + "AwEHoUQDQgAEchyXj869zfmKhRi9xP7f2AK07kEo4lE7ZlWTN14jh4YBTny+hRGR\n"
