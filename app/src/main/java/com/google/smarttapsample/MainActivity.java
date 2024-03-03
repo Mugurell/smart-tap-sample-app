@@ -15,10 +15,13 @@
  */
 package com.google.smarttapsample;
 
+import android.graphics.Color;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -355,7 +358,7 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
     descriptiveText.append("\n----\nSent `get smart tap data` command...");
 
     // Decrypted smartTapRedemptionValue from the pass
-    descriptiveText.append("\nResponse parsed and decrypted, contents:\n  ");
+    descriptiveText.append("\nSuccess: Response parsed and decrypted, contents:\n  ");
     descriptiveText.append(getDataResponse.decryptedSmartTapRedemptionValue);
 
     // End
@@ -370,7 +373,8 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
   private void stopCommand(final StringBuilder descriptiveText) {
 
     // Add output
-    this.output.add(descriptiveText.toString());
+    String message = descriptiveText.toString();
+    this.output.add(message);
 
     // Clear responses
     this.negotiateCryptoResponse = null;
@@ -382,6 +386,13 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
     runOnUiThread(() -> {
       arrayAdapter.notifyDataSetChanged();
       inNfcSession = false;
+
+      View root = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
+      if (message.contains("Error")) {
+        root.setBackgroundColor(Color.RED);
+      } else if (message.contains("Success")) {
+        root.setBackgroundColor(Color.GREEN);
+      }
     });
   }
 }
